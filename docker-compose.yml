@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    build: ./web
+    container_name: nodejs-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+   
+  db:
+    build: ./db
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
